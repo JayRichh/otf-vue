@@ -1,0 +1,8 @@
+@import "variables.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap'); /* Roboto for standard text readability */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'); /* Pairs well with Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap'); /* Contrast, heading, accents */
+
+html.dark {
+  //background: #22272e;
+}
