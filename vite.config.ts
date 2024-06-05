@@ -11,7 +11,9 @@ import { VitePWA } from "vite-plugin-pwa";
 import VueDevTools from "vite-plugin-vue-devtools";
 import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 import UnoCss from "unocss/vite";
-import prerender from 'vite-plugin-prerender';
+import path from "path";
+
+
 export default defineConfig({
   server: {
     host: "localhost",
@@ -44,20 +46,19 @@ export default defineConfig({
         "@vueuse/core",
       ],
       dts: "types/auto-imports.d.ts",
-      dirs: [
-        "src/composables",
-        "src/store",
-      ],
+      dirs: ["src/composables", "src/store"],
       vueTemplate: true,
     }),
     Components({
       extensions: ["vue"],
       include: [/\.vue$/, /\.vue\?vue/],
       dts: "types/components.d.ts",
-      exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
-      resolvers: [
-        IconsResolver(),
+      exclude: [
+        /[\\/]node_modules[\\/]/,
+        /[\\/]\.git[\\/]/,
+        /[\\/]\.nuxt[\\/]/,
       ],
+      resolvers: [IconsResolver()],
     }),
     VueI18nPlugin({
       runtimeOnly: true,
@@ -95,10 +96,6 @@ export default defineConfig({
     Inspect(),
     VueDevTools(),
     UnoCss(),
-    prerender({
-      staticDir: resolve(__dirname, 'dist'), // Specify the directory where static files are placed after build
-      routes: ['/', '/about', '/contact'], // List the routes you want to prerender
-    }),
   ],
   resolve: {
     alias: {
