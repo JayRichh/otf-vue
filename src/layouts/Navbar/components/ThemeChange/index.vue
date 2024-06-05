@@ -11,6 +11,7 @@ const showDropdown = ref(false);
 const mode = useColorMode<CustomTheme>({
   attribute: "data-theme",
   modes: {
+    winter: "winter",
     cupcake: "cupcake",
     bumblebee: "bumblebee",
     emerald: "emerald",
@@ -37,7 +38,6 @@ const mode = useColorMode<CustomTheme>({
     lemonade: "lemonade",
     night: "night",
     coffee: "coffee",
-    winter: "winter",
   },
 });
 
