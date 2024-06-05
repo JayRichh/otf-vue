@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import { themeList } from "./data";
 import type { CustomTheme } from "~/layouts/Navbar/components/ThemeChange/types";
@@ -82,6 +83,10 @@ function changeTheme(event: MouseEvent, theme: CustomTheme) {
     mode.value = theme;
   }
 }
+
+onMounted(() => {
+  mode.value = "winter";
+});
 </script>
 
 <template>
