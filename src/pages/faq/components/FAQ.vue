@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-
+import "animate.css"
 interface FAQ {
   id: number;
   question: string;
@@ -49,7 +49,7 @@ function toggleFAQ(id: number) {
 
 <template>
   <div class="p-5 bg-base-100 text-base-content">
-    <div class="container mx-auto py-12">
+    <div class="container mx-auto py-12 animate__animated animate__fadeIn">
       <h2 class="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
       <div class="flex flex-col gap-4">
         <div v-for="faq in faqs" :key="faq.id" class="card w-full bg-base-100 shadow-xl">

@@ -31,22 +31,16 @@ onMounted(() => {
   show.value = true;
 });
 </script>
-
 <template>
-  <div
-    class="relative mb-auto card overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 ease-in-out hover:scale-105"
-    v-if="show"
-  >
-    <img
-      v-if="props.day.image" :src="props.day.image"
-      class="absolute right-2 top-2 h-auto w-1/4 2xl:w-1/8 lg:w-1/6 md:w-1/5 xl:w-1/7"
-    >
+  <div v-if="show" class="card">
+    <div class="card-image"></div> 
+
     <div class="card-header p-2 text-base font-bold md:p-4 md:text-lg">
       {{ props.day.name }}
     </div>
     <div class="min-h-20 card-body p-1 text-sm md:p-2 md:text-base">
       <ul v-if="!props.day.closed">
-        <li v-for="(session, sIndex) in props.day.sessions" :key="sIndex" class="p-1 md:p-1 flex justify-between items-center border-b border-gray-200">
+        <li v-for="(session, index) in props.day.sessions" :key="index" class="session-item">
           <span class="time">{{ session.time }}</span>
           <span class="info">{{ session.info }}</span>
           <span class="price" v-html="session.price.replace(/\n/g, '<br>')"></span>
@@ -59,7 +53,41 @@ onMounted(() => {
   </div>
 </template>
 
+
 <style scoped>
+.card {
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Specific nth-child rules for background images */
+.card:nth-child(1) .card-image { background-image: url('~/assets/set1.png'); }
+.card:nth-child(2) .card-image { background-image: url('~/assets/set2.png'); }
+.card:nth-child(3) .card-image { background-image: url('~/assets/set3.png'); }
+.card:nth-child(4) .card-image { background-image: url('~/assets/set4.png'); }
+.card:nth-child(5) .card-image { background-image: url('~/assets/set5.png'); }
+.card:nth-child(6) .card-image { background-image: url('~/assets/set6.png'); }
+.card:nth-child(7) .card-image { background-image: url('~/assets/set7.png'); }
+
+.card-image {
+  position: absolute;
+  top: -60px;
+  right: 8px;
+  width: 20%;
+  height: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .card-body {
   padding: 0.5rem 1rem;
 }

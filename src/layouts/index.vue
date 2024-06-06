@@ -6,7 +6,7 @@ import Footer from "./Footer/index.vue";
 
 <template>
   <div class="antialiased">
-    <div class="min-h-screen">
+    <div class="min-h-[calc(100vh-160px)]">
       <Navbar />
       <RouterView />
     </div>
