@@ -22,7 +22,7 @@ const isMobile = computed(() => window.innerWidth < 768);
             <span class="text-base-content">Floor</span>
           </div>
         </RouterLink>
-        <ThemeChange />
+        <ThemeChange v-if="!isMobile" />
         <UnoCSSNavLink />
         <div v-if="!isMobile" class="flex items-center gap-4">
           <ThemeChange />
