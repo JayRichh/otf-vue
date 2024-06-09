@@ -84,9 +84,9 @@ function changeTheme(event: MouseEvent, theme: CustomTheme) {
   }
 }
 
-onMounted(() => {
-  mode.value = "winter";
-});
+// onMounted(() => {
+//   mode.value = "winter";
+// });
 </script>
 
 <template>
