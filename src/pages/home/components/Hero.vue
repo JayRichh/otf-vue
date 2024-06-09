@@ -5,7 +5,7 @@ import "animate.css"
 const router = useRouter();
 const isVisible = ref(true);
 function navigateToStore() {
-  router.push({ name: "StoreTest" });
+  router.push({ name: "About" });
 }
 
 onMounted(() => console.log("Component is mounted"));
